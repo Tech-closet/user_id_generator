@@ -1,1 +1,1 @@
-web: gunicorn app:html_genrator
+web: gunicorn app:app
