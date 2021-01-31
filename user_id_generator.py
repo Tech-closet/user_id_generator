@@ -3,14 +3,14 @@
 import mongo_read
 from flask import Flask, request, redirect, jsonify
 import random
+import os
 from flask_pymongo import pymongo
 # import html_gen
 import datetime, time
 
 
-# connection_to_mongo_atlas = "mongodb+srv://tech_closet:blog_api_try@cluster0.xcgis.mongodb.net/<blog_api>?retryWrites=true&w=majority"
 try:
-    connection_to_mongo_atlas = "mongodb+srv://tech_closet:blog_api_try@cluster0.3odja.mongodb.net/<user_track>?retryWrites=true&w=majority"
+    connection_to_mongo_atlas = os.environ.get('DB_CONNECTION') 
     client = pymongo.MongoClient(connection_to_mongo_atlas)
     db = client.get_database('user_track')
     print(db)
